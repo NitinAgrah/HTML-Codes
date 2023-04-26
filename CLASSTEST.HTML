@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>How </title>
+</head>
+
+<body>
+
+    <form id="form1">
+
+        <br>
+        <select id="membership_type">
+            <option value="">Select </option>
+            <option value="regular">State1</option>
+            <option value="pro">State2</option>
+            <option value="vip">State3</option>
+        </select>
+        <input type="radio" value="regular" name="membership" class="membership" disabled="disabled"> Sultanpur
+        <input type="radio" value="pro" name="membership" class="membership" disabled="disabled"> Lucknow
+        <input type="radio" value="vip" name="membership" class="membership" disabled="disabled"> AZAMGARH
+
+        <br /><br />
+
+
+        <select id="membership_type">
+            <option value="">Select </option>
+            <button value="regular" name="membership" class="membership">S</button>
+            <option value="pro">State2</option>
+            <option value="vip">State3</option>
+        </select>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#membership_type").on("change", function () {
+                var membership = $(this).val();
+
+                $(".membership[value='" + membership + "']").prop("checked", true);
+            });
+
+            // Method #1 - Getting radio selected using class
+            $("#btnSubmit").on("click", function () {
+                var membership = $(".membership:checked").val();
+
+                alert(membership);
+            });
+        });
+    </script>
+</body>
+
+</html>
